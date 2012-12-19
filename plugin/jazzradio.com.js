@@ -64,10 +64,10 @@
 
 	mappings.add([modes.NORMAL], ['v'], "Volume up.", function () {
 		const player = content.window.wrappedJSObject.AudioAddict.WP.wp;
-		player.setVolume(Math.min(player.getVolume() + 5, 100));
+		player.setVolume(Math.min(parseInt(player.getVolume()) + 5, 100));
 	}, { matchingUrls: uriPattern, });
 	mappings.add([modes.NORMAL], ['<S-v>'], "Volume down.", function () {
 		const player = content.window.wrappedJSObject.AudioAddict.WP.wp;
-		player.setVolume(Math.max(player.getVolume() - 5, 0));
+		player.setVolume(Math.max(parseInt(player.getVolume()) - 5, 0));
 	}, { matchingUrls: uriPattern, });
 })();
