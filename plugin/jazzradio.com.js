@@ -67,4 +67,13 @@
 
 	addMap4PlayersChannelList('j',  5, 'Scroll down Channel list.');
 	addMap4PlayersChannelList('k', -5, 'Scroll up Channel list.');
+
+	mappings.add([modes.NORMAL], ['v'], "Volume up.", function () {
+		const player = content.window.wrappedJSObject.AudioAddict.WP.wp;
+		player.setVolume(Math.min(player.getVolume() + 5, 100));
+	}, { matchingUrls: uriPattern, });
+	mappings.add([modes.NORMAL], ['<S-v>'], "Volume down.", function () {
+		const player = content.window.wrappedJSObject.AudioAddict.WP.wp;
+		player.setVolume(Math.max(player.getVolume() - 5, 0));
+	}, { matchingUrls: uriPattern, });
 })();
