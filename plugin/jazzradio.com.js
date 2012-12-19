@@ -56,14 +56,8 @@
 		);
 	};
 
-	// Force change 'hinttags' scope to allow local.
-	if (!(options.get('hinttags').scope & Option.SCOPE_LOCAL)) {
-		options.get('hinttags').scope |= Option.SCOPE_LOCAL;
-		autocommands.add('LocationChange', '.*', 'javascript delete tabs.options.hinttags');
-	}
-
 	// Not player pages exclude difficult, because player's URLs (jazzradio.com/(channel name) ) are same rule of non-pleyer page.
-	autocommands.add('LocationChange', uriPattern, 'setlocal hinttags+=|' + playerHinttags);
+	autocommands.add('PageLoad', uriPattern, 'setlocal hinttags+=|' + playerHinttags);
 
 	addMap4PlayersChannelList('j',  5, 'Scroll down Channel list.');
 	addMap4PlayersChannelList('k', -5, 'Scroll up Channel list.');
